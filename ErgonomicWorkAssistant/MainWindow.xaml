@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:ErgonomicWorkAssistant"
         mc:Ignorable="d"
         Icon="Icons/Robot.ico"
-        Title="Ergonomic Work Assistant" Height="185.885" Width="242.823" ResizeMode="NoResize">
+        Title="Ergonomic Work Assistant" Height="185.885" Width="242.823" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="15*"/>
