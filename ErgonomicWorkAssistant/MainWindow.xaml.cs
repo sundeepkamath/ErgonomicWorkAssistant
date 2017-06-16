@@ -152,6 +152,7 @@ namespace ErgonomicWorkAssistant
         {
             string breakFrequency = this.txtBreak.Text;
             Settings.Default.BreakInterval = breakFrequency;
+            Settings.Default.Save();
 
             if (timer != null)
             {
