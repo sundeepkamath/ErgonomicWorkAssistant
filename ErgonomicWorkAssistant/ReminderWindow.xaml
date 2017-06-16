@@ -8,8 +8,8 @@
         Title="Ergonomic Assistant" Height="214.4" Width="237.6" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <StackPanel VerticalAlignment="Center">
-            <Label Content="It's time to take a break!!" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="173" />
-            <Button Content="OK" Width="75" VerticalAlignment="Center" Click="Button_Click"/>
+            <Label Content="It's time to take a break!!" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" Width="173" />
+            <Button Content="OK" Width="75" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Click="Button_Click"/>
         </StackPanel>
     </Grid>
 </Window>
