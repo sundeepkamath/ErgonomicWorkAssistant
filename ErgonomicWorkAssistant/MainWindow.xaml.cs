@@ -1,10 +1,12 @@
-﻿using System;
+﻿using ErgonomicWorkAssistant.Properties;
+using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
-
+using System.Timers;
 
 namespace ErgonomicWorkAssistant
 {
@@ -17,9 +19,34 @@ namespace ErgonomicWorkAssistant
         System.Windows.Forms.ContextMenu cms = null;
         System.Windows.Forms.MenuItem menuItem = null;
 
+        SynchronizationContext syncContext = SynchronizationContext.Current;
+        ReminderWindow remWindow;
+        System.Timers.Timer timer;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            txtBreak.Text = Settings.Default.BreakInterval;
+            remWindow = new ReminderWindow();
+            initializeTimer();
+        }
+
+        private void initializeTimer()
+        {
+            timer = new System.Timers.Timer();
+            timer.Interval = Convert.ToInt32(Settings.Default.BreakInterval) * 60 * 1000;
+            timer.Elapsed += Timer_Elapsed;
+        }
+
+        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            syncContext.Post(new SendOrPostCallback((o) =>
+            {
+                timer.Stop();
+                remWindow.Show();
+                timer.Start();
+            }), null);
         }
 
         protected override void OnInitialized(EventArgs e)
@@ -118,6 +145,19 @@ namespace ErgonomicWorkAssistant
             if (!(((MouseEventArgs)e).Button == MouseButtons.Right))
             {
                 ShowNavigationWindow();
+            }
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            string breakFrequency = this.txtBreak.Text;
+            Settings.Default.BreakInterval = breakFrequency;
+
+            if (timer != null)
+            {
+                timer.Close();
+                timer.Interval = Convert.ToInt32(Settings.Default.BreakInterval) * 60 * 1000;
+                timer.Start();
             }
         }
 
