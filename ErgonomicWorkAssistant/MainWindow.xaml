@@ -49,12 +49,22 @@
                        Margin="2"
                    />
         </StackPanel>
-        <Button Grid.Column="2"
-                Grid.Row="3"
+        <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Right">
+            <Button 
                 Name="btnSave"
                 Content="Save"
-                HorizontalAlignment="Right"
-                Width="50" Click="btnSave_Click" 
+                HorizontalAlignment="Left"
+                Width="40" Click="btnSave_Click"
+                Margin="0,0,5,0"
                 />
+            <Button
+                Name="btnHide"
+                Content="Hide"
+                HorizontalAlignment="Right"
+                Width="40"
+                Margin="5,0,0,0"
+                Click="btnHide_Click"/>
+        </StackPanel>
+        
     </Grid>
 </Window>

@@ -132,7 +132,8 @@ namespace ErgonomicWorkAssistant
 
         private void MenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            //this.Close();
+            System.Windows.Application.Current.Shutdown();
         }
 
         private void NotifyIcon_DoubleClick(object sender, EventArgs e)
@@ -174,5 +175,10 @@ namespace ErgonomicWorkAssistant
             }
         }
         #endregion
+
+        private void btnHide_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
     }
 }
