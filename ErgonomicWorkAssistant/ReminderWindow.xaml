@@ -5,9 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ErgonomicWorkAssistant"
         mc:Ignorable="d"
-        Title="ReminderWindow" Height="300" Width="300" WindowStartupLocation="CenterScreen">
+        Title="Ergonomic Assistant" Height="214.4" Width="237.6" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <Label Content="It's time to take a break!!" HorizontalAlignment="Left" Margin="57,127,0,0" VerticalAlignment="Top" Width="173"/>
-        <Button Content="OK" HorizontalAlignment="Left" Margin="111,175,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.058,0.293" Click="Button_Click"/>
+        <StackPanel VerticalAlignment="Center">
+            <Label Content="It's time to take a break!!" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="173" />
+            <Button Content="OK" Width="75" VerticalAlignment="Center" Click="Button_Click"/>
+        </StackPanel>
     </Grid>
 </Window>
